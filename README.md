@@ -1,15 +1,8 @@
 # Sistema de Gerenciamento de Clínica Veterinária
 
-Este projeto oferece uma arquitetura inicial em Java para gerenciar tutores, animais, consultas e exames. A camada de persistência é feita com MySQL via JDBC e a conexão utiliza variáveis de ambiente.
+Este projeto oferece uma arquitetura inicial em Java para gerenciar tutores, animais, consultas e exames. A camada de persistência é feita com MySQL via JDBC.
 
-Crie um arquivo `.env` (ou defina variáveis no seu sistema) contendo:
-
-```bash
-DB_USER=seu_usuario
-DB_PASS=sua_senha
-DB_HOST=localhost
-DB_NAME=uniclinicavet
-```
+A classe `DBConnection` possui os dados de acesso ao banco de dados definidos diretamente no código. Ajuste as constantes `URL`, `USER` e `PASS` conforme a sua instalação do MySQL.
 
 ## Estrutura de Pastas
 ```

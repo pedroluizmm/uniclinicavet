@@ -11,13 +11,14 @@ public class DBConnection {
 
     private DBConnection() {}
 
-    public static Connection getConnection() {
-        String host = System.getenv().getOrDefault("DB_HOST", "localhost");
-        String dbName = System.getenv().getOrDefault("DB_NAME", "uniclinicavet");
-        String user = System.getenv("DB_USER");
-        String pass = System.getenv("DB_PASS");
+    private static final String URL = "jdbc:mysql://localhost:3306/uniclinicavet";
+    private static final String USER = "root"; // ajuste conforme suas credenciais
+    private static final String PASS = "";     // ajuste conforme suas credenciais
 
-        String url = String.format("jdbc:mysql://%s/%s", host, dbName);
+    public static Connection getConnection() {
+        String url = URL;
+        String user = USER;
+        String pass = PASS;
         try {
             return DriverManager.getConnection(url, user, pass);
         } catch (SQLException e) {
