@@ -25,7 +25,17 @@ mvn clean package
 
 A geração do JAR criará o artefato em `target/`. A aplicação principal está no pacote `com.uniclinica.controller`.
 
+### Executar interface JavaFX
+
+Para abrir a interface gráfica básica, utilize o plugin JavaFX:
+
+```bash
+mvn javafx:run
+```
+
+Uma janela simples será exibida demonstrando a integração do projeto com JavaFX.
+
 ## Próximos Passos
 1. Implementar as classes de DAO utilizando JDBC.
 2. Criar o schema MySQL e ajustar o `DBConnection` para usar as variáveis de ambiente `DB_USER` e `DB_PASS`.
-3. Construir a interface em JavaFX ou Swing.
+3. Expandir a interface em JavaFX.
