@@ -32,6 +32,19 @@ Depois da compilação, a aplicação principal pode ser executada com:
 java -cp out com.uniclinica.controller.App
 ```
 
+### Execução rápida
+
+Para compilar e executar tudo de uma vez existe o script `run.sh`. Ele realiza a
+compilação e chama a classe principal automaticamente. Basta executar:
+
+```bash
+./run.sh
+```
+
+Ao abrir o projeto no IntelliJ é possível rodar esse mesmo script clicando no
+botão de _Run_ do próprio arquivo ou utilizando a configuração "Run App" já
+incluída no repositório.
+
 ### Executar interface JavaFX
 
 Para abrir a interface gráfica básica é necessário ter as bibliotecas do JavaFX disponíveis. Após baixar os JARs, a execução pode ser feita da seguinte forma (ajuste o caminho conforme sua instalação):
