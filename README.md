@@ -19,20 +19,40 @@ src/
 ```
 
 ## Compilação
-O projeto utiliza Maven. Para compilar:
+Utilize o JDK (versão 17 ou superior) para compilar manualmente os arquivos fonte.
+Um exemplo simples de compilação via linha de comando é:
 
 ```bash
-mvn clean package
+javac -d out $(find src/main/java -name '*.java')
 ```
 
-A geração do JAR criará o artefato em `target/`. A aplicação principal está no pacote `com.uniclinica.controller`.
+Depois da compilação, a aplicação principal pode ser executada com:
+
+```bash
+java -cp out com.uniclinica.controller.App
+```
+
+### Execução rápida
+
+Para compilar e executar tudo de uma vez existe o script `run.sh`. Ele realiza a
+compilação e chama a classe principal automaticamente. Basta executar:
+
+```bash
+./run.sh
+```
+
+Ao abrir o projeto no IntelliJ é possível rodar esse mesmo script clicando no
+botão de _Run_ do próprio arquivo ou utilizando a configuração "Run App" já
+incluída no repositório.
 
 ### Executar interface JavaFX
 
-Para abrir a interface gráfica básica, utilize o plugin JavaFX:
+Para abrir a interface gráfica básica é necessário ter as bibliotecas do JavaFX disponíveis. Após baixar os JARs, a execução pode ser feita da seguinte forma (ajuste o caminho conforme sua instalação):
 
 ```bash
-mvn javafx:run
+java --module-path /caminho/para/javafx/lib \
+     --add-modules javafx.controls,javafx.fxml \
+     -cp out com.uniclinica.controller.JavaFXApp
 ```
 
 Uma janela simples será exibida demonstrando a integração do projeto com JavaFX.

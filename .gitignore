@@ -1,3 +1,4 @@
-/target/
+# Diretório gerado pela IDE IntelliJ
+/out/
 *.iml
 .idea/
