@@ -54,6 +54,24 @@ Ao abrir o projeto no IntelliJ é possível rodar esse mesmo script clicando no
 botão de _Run_ do próprio arquivo ou utilizando a configuração "Run App" já
 incluída no repositório.
 
+### Usando Maven
+
+Se preferir rodar tudo diretamente pelo terminal do IntelliJ, utilize o Maven,
+que já possui as dependências configuradas no `pom.xml` deste projeto. Os
+comandos principais são:
+
+```bash
+# Executar a aplicação de console
+mvn exec:java
+
+# Abrir a interface JavaFX
+mvn javafx:run
+```
+
+O IntelliJ reconhece automaticamente este projeto Maven, permitindo executar os
+comandos acima no terminal integrado ou criar configurações de execução a partir
+dos objetivos `exec:java` e `javafx:run`.
+
 ### Executar interface JavaFX
 
 Para abrir a interface gráfica básica é necessário ter as bibliotecas do JavaFX disponíveis. Após baixar os JARs, a execução pode ser feita da seguinte forma (ajuste o caminho conforme sua instalação):
