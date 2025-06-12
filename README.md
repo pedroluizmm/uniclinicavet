@@ -20,16 +20,30 @@ src/
 
 ## Compilação
 Utilize o JDK (versão 17 ou superior) para compilar manualmente os arquivos fonte.
-Um exemplo simples de compilação via linha de comando é:
+Para rodar somente a aplicação de console, compile excluindo a classe JavaFX:
 
 ```bash
-javac -d out $(find src/main/java -name '*.java')
+javac -d out $(find src/main/java -name '*.java' ! -name 'JavaFXApp.java')
+java -cp out com.uniclinica.controller.App
 ```
 
-Depois da compilação, a aplicação principal pode ser executada com:
+Para a interface JavaFX é necessário informar as bibliotecas do JavaFX:
 
 ```bash
-java -cp out com.uniclinica.controller.App
+javac --module-path "$JAVAFX_LIB" --add-modules javafx.controls,javafx.fxml \
+      -d out $(find src/main/java -name '*.java')
+
+java --module-path "$JAVAFX_LIB" --add-modules javafx.controls,javafx.fxml \
+     -cp out com.uniclinica.controller.JavaFXApp
+```
+
+### Execução rápida com scripts
+
+O repositório inclui scripts Bash para facilitar a compilação e execução:
+
+```bash
+./run.sh                       # compila e roda a aplicação de console
+JAVAFX_LIB=/caminho/javafx/lib ./run_javafx.sh  # compila e roda o JavaFX
 ```
 
 ### Execução rápida com Maven
@@ -43,31 +57,13 @@ mvn exec:java
 
 # Abrir a interface JavaFX
 mvn javafx:run
-```
 
+```
 
 O IntelliJ detecta automaticamente o projeto Maven, permitindo rodar os comandos
 acima no terminal integrado ou criar configurações de execução a partir dos
 objetivos `exec:java` e `javafx:run`.
 
-
-### Usando Maven
-
-Se preferir rodar tudo diretamente pelo terminal do IntelliJ, utilize o Maven,
-que já possui as dependências configuradas no `pom.xml` deste projeto. Os
-comandos principais são:
-
-```bash
-# Executar a aplicação de console
-mvn exec:java
-
-# Abrir a interface JavaFX
-mvn javafx:run
-```
-
-O IntelliJ reconhece automaticamente este projeto Maven, permitindo executar os
-comandos acima no terminal integrado ou criar configurações de execução a partir
-dos objetivos `exec:java` e `javafx:run`.
 
 ### Executar interface JavaFX
 
