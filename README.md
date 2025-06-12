@@ -2,7 +2,7 @@
 
 Este projeto oferece uma arquitetura inicial em Java para gerenciar tutores, animais, consultas e exames. A camada de persistência é feita com MySQL via JDBC.
 
-A classe `DBConnection` possui os dados de acesso ao banco de dados definidos diretamente no código. Ajuste as constantes `URL`, `USER` e `PASS` conforme a sua instalação do MySQL.
+A configuração de acesso ao banco é lida de variáveis de ambiente. Crie um arquivo `.env` na raiz com as chaves `DB_URL`, `DB_USER` e `DB_PASS` ou defina-as no seu sistema.
 
 ## Estrutura de Pastas
 ```
@@ -15,8 +15,12 @@ src/
         service/     # Regras de negócio
         controller/  # Ponto de entrada e controladores
         util/        # Utilidades (ex: conexões)
-    resources/       # Recursos adicionais
+  resources/       # Recursos adicionais
 ```
+
+## Configuração do Banco de Dados
+
+Copie o arquivo `.env.example` para `.env` e ajuste as variáveis `DB_URL`, `DB_USER` e `DB_PASS` de acordo com o seu ambiente de MySQL. Esses valores também podem ser definidos como variáveis de ambiente do sistema.
 
 ## Compilação
 Utilize o JDK (versão 17 ou superior) para compilar manualmente os arquivos fonte.

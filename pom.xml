@@ -13,7 +13,12 @@
     </properties>
 
     <dependencies>
-        <!-- Nenhuma dependência externa é necessária para a interface Swing -->
+        <!-- Biblioteca para carregar variáveis do arquivo .env -->
+        <dependency>
+            <groupId>io.github.cdimascio</groupId>
+            <artifactId>dotenv-java</artifactId>
+            <version>3.2.0</version>
+        </dependency>
     </dependencies>
 
     <build>
