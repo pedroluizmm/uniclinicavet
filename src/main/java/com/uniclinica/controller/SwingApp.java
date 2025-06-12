@@ -3,9 +3,7 @@ package com.uniclinica.controller;
 import javax.swing.SwingUtilities;
 import com.uniclinica.controller.AgendamentoFrame;
 
-/**
- * Ponto de entrada da interface gráfica Swing.
- */
+
 public class SwingApp {
 
     private static void createAndShowGui() {

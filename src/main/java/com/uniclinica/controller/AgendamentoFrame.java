@@ -9,9 +9,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
-/**
- * Janela simples para agendar consultas e exames.
- */
+
 public class AgendamentoFrame extends JFrame {
 
     private final JTextField tutorField = new JTextField();

@@ -4,9 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * Classe utilitária para conexão JDBC. A implementação será definida com MySQL.
- */
+
 public class DBConnection {
 
     private DBConnection() {}
