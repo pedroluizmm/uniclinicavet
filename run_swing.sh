@@ -1,5 +1,5 @@
 #!/bin/bash
 set -e
-mkdir -p out
-javac -d out $(find src/main/java -name '*.java')
-java -cp out com.uniclinica.controller.SwingApp
+
+# Abre a interface Swing usando Maven para incluir as dependências.
+mvn -q exec:java -Dexec.mainClass=com.uniclinica.controller.SwingApp

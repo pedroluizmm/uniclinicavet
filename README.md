@@ -24,27 +24,28 @@ Copie o arquivo `.env.example` para `.env` e ajuste as variáveis `DB_URL`, `DB_
 
 ## Compilação
 Utilize o JDK (versão 17 ou superior) para compilar manualmente os arquivos fonte.
-Para rodar somente a aplicação de console, compile todas as classes Java:
+Para rodar somente a aplicação de console, compile todas as classes Java
+incluindo as dependências (ex.: usando Maven para copiar os jars):
 
 ```bash
-javac -d out $(find src/main/java -name '*.java')
-java -cp out com.uniclinica.controller.App
+javac -cp "target/dependency/*" -d out $(find src/main/java -name '*.java')
+java -cp "target/dependency/*:out" com.uniclinica.controller.App
 ```
 
 Para abrir a interface Swing com um pequeno formulário de agendamento basta executar a classe `SwingApp`:
 
 ```bash
-javac -d out $(find src/main/java -name '*.java')
-java -cp out com.uniclinica.controller.SwingApp
+javac -cp "target/dependency/*" -d out $(find src/main/java -name '*.java')
+java -cp "target/dependency/*:out" com.uniclinica.controller.SwingApp
 ```
 
 ### Execução rápida com scripts
 
-O repositório inclui scripts Bash para facilitar a compilação e execução:
+O repositório inclui scripts Bash que utilizam o Maven para compilar e executar o projeto:
 
 ```bash
-./run.sh            # compila e roda a aplicação de console
-./run_swing.sh      # compila e abre a interface Swing
+./run.sh            # executa a aplicação de console
+./run_swing.sh      # abre a interface Swing
 ```
 
 ### Execução rápida com Maven
@@ -71,8 +72,8 @@ objetivos `exec:java`.
 Caso deseje rodar a interface gráfica sem o script, compile e execute a classe `SwingApp`:
 
 ```bash
-javac -d out $(find src/main/java -name '*.java')
-java -cp out com.uniclinica.controller.SwingApp
+javac -cp "target/dependency/*" -d out $(find src/main/java -name '*.java')
+java -cp "target/dependency/*:out" com.uniclinica.controller.SwingApp
 ```
 
 Ao executar, uma janela exibindo um formulário de agendamento de consultas e exames será apresentada.

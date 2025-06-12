@@ -1,5 +1,5 @@
 #!/bin/bash
 set -e
-mkdir -p out
-javac -d out $(find src/main/java -name '*.java')
-java -cp out com.uniclinica.controller.App
+
+# Executa a aplicação de console utilizando Maven para resolver as dependências.
+mvn -q exec:java
