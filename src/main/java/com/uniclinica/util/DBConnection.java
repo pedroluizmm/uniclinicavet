@@ -3,20 +3,21 @@ package com.uniclinica.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import io.github.cdimascio.dotenv.Dotenv;
 
 
 public class DBConnection {
 
     private DBConnection() {}
 
-    private static final String URL = "jdbc:mysql://localhost:3306/uniclinicavet";
-    private static final String USER = "root"; // ajuste conforme suas credenciais
-    private static final String PASS = "";     // ajuste conforme suas credenciais
+    private static final Dotenv dotenv = Dotenv.configure()
+            .ignoreIfMissing()
+            .load();
 
     public static Connection getConnection() {
-        String url = URL;
-        String user = USER;
-        String pass = PASS;
+        String url = dotenv.get("DB_URL", "jdbc:mysql://localhost:3306/uniclinicavet");
+        String user = dotenv.get("DB_USER", "root");
+        String pass = dotenv.get("DB_PASS", "");
         try {
             return DriverManager.getConnection(url, user, pass);
         } catch (SQLException e) {
