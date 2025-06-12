@@ -1,9 +1,7 @@
 package com.uniclinica.controller;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
-import java.awt.BorderLayout;
+import com.uniclinica.controller.AgendamentoFrame;
 
 /**
  * Ponto de entrada da interface gráfica Swing.
@@ -11,11 +9,7 @@ import java.awt.BorderLayout;
 public class SwingApp {
 
     private static void createAndShowGui() {
-        JFrame frame = new JFrame("UniClinicaVet");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.add(new JLabel("UniClinicaVet - Swing", JLabel.CENTER), BorderLayout.CENTER);
-        frame.setSize(400, 200);
-        frame.setLocationRelativeTo(null);
+        AgendamentoFrame frame = new AgendamentoFrame();
         frame.setVisible(true);
     }
 

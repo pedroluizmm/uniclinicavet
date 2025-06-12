@@ -27,7 +27,7 @@ javac -d out $(find src/main/java -name '*.java')
 java -cp out com.uniclinica.controller.App
 ```
 
-Para abrir a interface Swing basta executar a classe `SwingApp`:
+Para abrir a interface Swing com um pequeno formulário de agendamento basta executar a classe `SwingApp`:
 
 ```bash
 javac -d out $(find src/main/java -name '*.java')
@@ -71,7 +71,7 @@ javac -d out $(find src/main/java -name '*.java')
 java -cp out com.uniclinica.controller.SwingApp
 ```
 
-Uma janela simples será exibida demonstrando a integração do projeto com Swing.
+Ao executar, uma janela exibindo um formulário de agendamento de consultas e exames será apresentada.
 
 ## Próximos Passos
 1. Implementar as classes de DAO utilizando JDBC.
