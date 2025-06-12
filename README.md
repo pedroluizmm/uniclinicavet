@@ -45,9 +45,29 @@ mvn exec:java
 mvn javafx:run
 ```
 
+
 O IntelliJ detecta automaticamente o projeto Maven, permitindo rodar os comandos
 acima no terminal integrado ou criar configurações de execução a partir dos
 objetivos `exec:java` e `javafx:run`.
+
+
+### Usando Maven
+
+Se preferir rodar tudo diretamente pelo terminal do IntelliJ, utilize o Maven,
+que já possui as dependências configuradas no `pom.xml` deste projeto. Os
+comandos principais são:
+
+```bash
+# Executar a aplicação de console
+mvn exec:java
+
+# Abrir a interface JavaFX
+mvn javafx:run
+```
+
+O IntelliJ reconhece automaticamente este projeto Maven, permitindo executar os
+comandos acima no terminal integrado ou criar configurações de execução a partir
+dos objetivos `exec:java` e `javafx:run`.
 
 ### Executar interface JavaFX
 
