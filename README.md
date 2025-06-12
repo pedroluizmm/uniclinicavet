@@ -32,27 +32,24 @@ Depois da compilação, a aplicação principal pode ser executada com:
 java -cp out com.uniclinica.controller.App
 ```
 
-### Execução rápida
+### Execução rápida com Maven
 
-Para compilar e executar tudo de uma vez existe o script `run.sh`. Ele realiza a
-compilação e chama a classe principal automaticamente. Basta executar:
-
-```bash
-./run.sh
-```
-
-Caso queira abrir diretamente a interface JavaFX, defina a variável de ambiente
-`JAVAFX_LIB` apontando para a pasta `lib` do JavaFX e utilize o script
-`run_javafx.sh`:
+Abra o terminal do IntelliJ e utilize o Maven para compilar e executar o projeto.
+Os principais comandos são:
 
 ```bash
-export JAVAFX_LIB=/caminho/para/javafx/lib
-./run_javafx.sh
+# Executar a aplicação de console
+mvn exec:java
+
+# Abrir a interface JavaFX
+mvn javafx:run
 ```
 
-Ao abrir o projeto no IntelliJ é possível rodar esse mesmo script clicando no
-botão de _Run_ do próprio arquivo ou utilizando a configuração "Run App" já
-incluída no repositório.
+
+O IntelliJ detecta automaticamente o projeto Maven, permitindo rodar os comandos
+acima no terminal integrado ou criar configurações de execução a partir dos
+objetivos `exec:java` e `javafx:run`.
+
 
 ### Usando Maven
 
