@@ -57,11 +57,13 @@ mvn exec:java
 
 # Abrir a interface JavaFX
 mvn javafx:run
+
 ```
 
 O IntelliJ detecta automaticamente o projeto Maven, permitindo rodar os comandos
 acima no terminal integrado ou criar configurações de execução a partir dos
 objetivos `exec:java` e `javafx:run`.
+
 
 ### Executar interface JavaFX
 
