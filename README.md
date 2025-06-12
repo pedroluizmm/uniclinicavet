@@ -20,21 +20,18 @@ src/
 
 ## Compilação
 Utilize o JDK (versão 17 ou superior) para compilar manualmente os arquivos fonte.
-Para rodar somente a aplicação de console, compile excluindo a classe JavaFX:
+Para rodar somente a aplicação de console, compile todas as classes Java:
 
 ```bash
-javac -d out $(find src/main/java -name '*.java' ! -name 'JavaFXApp.java')
+javac -d out $(find src/main/java -name '*.java')
 java -cp out com.uniclinica.controller.App
 ```
 
-Para a interface JavaFX é necessário informar as bibliotecas do JavaFX:
+Para abrir a interface Swing basta executar a classe `SwingApp`:
 
 ```bash
-javac --module-path "$JAVAFX_LIB" --add-modules javafx.controls,javafx.fxml \
-      -d out $(find src/main/java -name '*.java')
-
-java --module-path "$JAVAFX_LIB" --add-modules javafx.controls,javafx.fxml \
-     -cp out com.uniclinica.controller.JavaFXApp
+javac -d out $(find src/main/java -name '*.java')
+java -cp out com.uniclinica.controller.SwingApp
 ```
 
 ### Execução rápida com scripts
@@ -42,8 +39,8 @@ java --module-path "$JAVAFX_LIB" --add-modules javafx.controls,javafx.fxml \
 O repositório inclui scripts Bash para facilitar a compilação e execução:
 
 ```bash
-./run.sh                       # compila e roda a aplicação de console
-JAVAFX_LIB=/caminho/javafx/lib ./run_javafx.sh  # compila e roda o JavaFX
+./run.sh            # compila e roda a aplicação de console
+./run_swing.sh      # compila e abre a interface Swing
 ```
 
 ### Execução rápida com Maven
@@ -55,28 +52,27 @@ Os principais comandos são:
 # Executar a aplicação de console
 mvn exec:java
 
-# Abrir a interface JavaFX
-mvn javafx:run
+# Abrir a interface Swing
+mvn exec:java -Dexec.mainClass=com.uniclinica.controller.SwingApp
 
 ```
 
 O IntelliJ detecta automaticamente o projeto Maven, permitindo rodar os comandos
 acima no terminal integrado ou criar configurações de execução a partir dos
-objetivos `exec:java` e `javafx:run`.
+objetivos `exec:java`.
 
 
-### Executar interface JavaFX
+### Executar interface Swing manualmente
 
-Para abrir a interface gráfica básica é necessário ter as bibliotecas do JavaFX disponíveis. Após baixar os JARs, a execução pode ser feita da seguinte forma (ajuste o caminho conforme sua instalação):
+Caso deseje rodar a interface gráfica sem o script, compile e execute a classe `SwingApp`:
 
 ```bash
-java --module-path /caminho/para/javafx/lib \
-     --add-modules javafx.controls,javafx.fxml \
-     -cp out com.uniclinica.controller.JavaFXApp
+javac -d out $(find src/main/java -name '*.java')
+java -cp out com.uniclinica.controller.SwingApp
 ```
 
-Uma janela simples será exibida demonstrando a integração do projeto com JavaFX.
+Uma janela simples será exibida demonstrando a integração do projeto com Swing.
 
 ## Próximos Passos
 1. Implementar as classes de DAO utilizando JDBC.
-2. Expandir a interface em JavaFX.
+2. Expandir a interface em Swing.
