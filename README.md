@@ -95,8 +95,7 @@ javac -cp "lib/*" -d out $(find src/main/java -name '*.java')
 java -cp "lib/*:out" com.uniclinica.controller.SwingApp
 ```
 
-Ao executar, uma janela exibindo um formulário de agendamento de consultas e exames será apresentada.
+Ao executar, uma janela com duas abas será apresentada: **Agendamento**, que permite marcar consultas e exames, e **Admin**, onde é possível realizar operações de CRUD para tutores, animais, consultas e exames. Todas as ações utilizam um banco MySQL configurado via `.env`.
 
 ## Próximos Passos
-1. Implementar as classes de DAO utilizando JDBC.
-2. Expandir a interface em Swing.
+1. Melhorar a validação de dados e a usabilidade da interface.

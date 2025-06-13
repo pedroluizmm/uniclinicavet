@@ -9,6 +9,7 @@ case "$(uname -s)" in
 esac
 
 
+
 JAR_DIR="lib"
 JAR_NAME="dotenv-java-3.2.0.jar"
 JAR_PATH="$JAR_DIR/$JAR_NAME"
@@ -32,4 +33,3 @@ java -cp "$JAR_DIR/*${CP_SEP}out" com.uniclinica.controller.SwingApp
 case "$(uname -s)" in
   MINGW*|MSYS*|CYGWIN*) read -rp "Pressione Enter para sair" _ ;;
 esac
-
