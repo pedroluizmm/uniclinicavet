@@ -7,6 +7,10 @@ import java.util.List;
 public class ConsultaService {
     private final ConsultaDao dao = new ConsultaDao();
 
+    public List<Consulta> listarConsultas() {
+        return dao.findAll();
+    }
+
     public List<Consulta> listarPorAnimal(int animalId) {
         return dao.findByAnimal(animalId);
     }

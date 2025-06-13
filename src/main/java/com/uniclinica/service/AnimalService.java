@@ -7,6 +7,10 @@ import java.util.List;
 public class AnimalService {
     private final AnimalDao dao = new AnimalDao();
 
+    public List<Animal> listarAnimais() {
+        return dao.findAll();
+    }
+
     public List<Animal> listarPorTutor(int tutorId) {
         return dao.findByTutor(tutorId);
     }
