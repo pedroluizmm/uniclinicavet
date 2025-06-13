@@ -7,9 +7,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * DAO de Exame - Implementação de acesso a dados será adicionada com JDBC.
- */
+
 public class ExameDao {
 
     public List<Exame> findByConsulta(int consultaId) {

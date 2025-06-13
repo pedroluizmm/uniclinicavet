@@ -7,9 +7,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * DAO de Consulta - Implementação de acesso a dados será adicionada com JDBC.
- */
+
 public class ConsultaDao {
 
     public List<Consulta> findByAnimal(int animalId) {

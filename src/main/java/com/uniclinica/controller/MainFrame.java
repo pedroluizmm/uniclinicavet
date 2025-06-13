@@ -3,9 +3,7 @@ package com.uniclinica.controller;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Janela principal com abas de agendamento e administração.
- */
+
 public class MainFrame extends JFrame {
 
     public MainFrame() {

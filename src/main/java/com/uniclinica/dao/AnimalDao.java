@@ -7,9 +7,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * DAO de Animal - Implementação de acesso a dados será adicionada com JDBC.
- */
+
 public class AnimalDao {
 
     public List<Animal> findByTutor(int tutorId) {

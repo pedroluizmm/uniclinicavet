@@ -11,9 +11,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-/**
- * Painel de administração com abas para cada entidade.
- */
+
 public class AdminPanel extends JPanel {
 
     public AdminPanel() {
@@ -26,7 +24,7 @@ public class AdminPanel extends JPanel {
         add(tabs, BorderLayout.CENTER);
     }
 
-    // Painel CRUD de Tutor
+
     private static class TutorCrudPanel extends JPanel {
         private final TutorService service = new TutorService();
         private final JTextField id = new JTextField(5);
@@ -82,7 +80,7 @@ public class AdminPanel extends JPanel {
         }
     }
 
-    // Painel CRUD de Animal
+
     private static class AnimalCrudPanel extends JPanel {
         private final AnimalService service = new AnimalService();
         private final JTextField id = new JTextField(5);
@@ -134,7 +132,7 @@ public class AdminPanel extends JPanel {
         }
     }
 
-    // Painel CRUD de Consulta
+
     private static class ConsultaCrudPanel extends JPanel {
         private final ConsultaService service = new ConsultaService();
         private final JTextField id = new JTextField(5);
@@ -186,7 +184,7 @@ public class AdminPanel extends JPanel {
         }
     }
 
-    // Painel CRUD de Exame
+
     private static class ExameCrudPanel extends JPanel {
         private final ExameService service = new ExameService();
         private final JTextField id = new JTextField(5);

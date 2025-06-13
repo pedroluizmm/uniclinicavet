@@ -6,9 +6,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * DAO de Tutor - Implementação de acesso a dados será adicionada com JDBC.
- */
 public class TutorDao {
 
     public List<Tutor> findAll() {
