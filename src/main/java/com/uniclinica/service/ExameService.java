@@ -7,6 +7,10 @@ import java.util.List;
 public class ExameService {
     private final ExameDao dao = new ExameDao();
 
+    public List<Exame> listarExames() {
+        return dao.findAll();
+    }
+
     public List<Exame> listarPorConsulta(int consultaId) {
         return dao.findByConsulta(consultaId);
     }
