@@ -1,0 +1,7 @@
+# Diretório gerado pela IDE IntelliJ
+/out/
+*.iml
+.idea/
+target/
+lib/
+.env
