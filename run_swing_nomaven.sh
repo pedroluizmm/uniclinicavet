@@ -28,6 +28,7 @@ fi
 if [ ! -f "$MYSQL_PATH" ]; then
   echo "Baixando dependencia $MYSQL_JAR..."
   curl -L -o "$MYSQL_PATH" "$MYSQL_URL"
+
 fi
 
 mkdir -p out
@@ -35,6 +36,8 @@ echo "Compilando fontes..."
 javac -cp "$JAR_DIR/*" -d out $(find src/main/java -name '*.java')
 
 echo "Iniciando aplicativo Swing..."
+
+
 java -cp "$JAR_DIR/*${CP_SEP}out" com.uniclinica.controller.SwingApp
 
 # Em ambientes Windows, mantenha a janela aberta para o usuário ver mensagens
