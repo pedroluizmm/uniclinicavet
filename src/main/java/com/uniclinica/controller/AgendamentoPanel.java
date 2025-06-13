@@ -8,9 +8,11 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import com.uniclinica.model.*;
+import com.uniclinica.service.*;
 
 
-public class AgendamentoFrame extends JFrame {
+public class AgendamentoPanel extends JPanel {
 
     private final JTextField tutorField = new JTextField();
     private final JTextField animalField = new JTextField();
@@ -19,13 +21,11 @@ public class AgendamentoFrame extends JFrame {
     private final JTextField veterinarioField = new JTextField();
     private final JTextField exameField = new JTextField();
     private final JTextArea outputArea = new JTextArea();
+    private final ConsultaService consultaService = new ConsultaService();
+    private final ExameService exameService = new ExameService();
 
-    public AgendamentoFrame() {
-        super("Agendar Consulta/Exame");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public AgendamentoPanel() {
         createLayout();
-        pack();
-        setLocationRelativeTo(null);
     }
 
     private void createLayout() {
@@ -54,9 +54,9 @@ public class AgendamentoFrame extends JFrame {
         JScrollPane scroll = new JScrollPane(outputArea);
         scroll.setPreferredSize(new Dimension(400, 200));
 
-        getContentPane().setLayout(new BorderLayout(5, 5));
-        getContentPane().add(top, BorderLayout.NORTH);
-        getContentPane().add(scroll, BorderLayout.CENTER);
+        setLayout(new BorderLayout(5, 5));
+        add(top, BorderLayout.NORTH);
+        add(scroll, BorderLayout.CENTER);
     }
 
     private class ScheduleListener implements ActionListener {
@@ -71,6 +71,13 @@ public class AgendamentoFrame extends JFrame {
                 String exame = exameField.getText();
                 LocalDateTime dt = LocalDateTime.of(data, hora);
 
+                Consulta consulta = new Consulta(0, Integer.parseInt(animal), dt, vet, "");
+                consultaService.agendarConsulta(consulta);
+                if (!exame.isBlank()) {
+                    Exame ex = new Exame(0, consulta.getId(), exame, "Pendente", null);
+                    exameService.solicitarExame(ex);
+                }
+
                 String resumo = String.format("%s - %s\n  Consulta: %s com %s\n  Exame: %s\n", tutor, animal, dt, vet, exame);
                 outputArea.append(resumo + "\n");
 
@@ -82,7 +89,7 @@ public class AgendamentoFrame extends JFrame {
                 veterinarioField.setText("");
                 exameField.setText("");
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(AgendamentoFrame.this,
+                JOptionPane.showMessageDialog(AgendamentoPanel.this,
                         "Dados inválidos: " + ex.getMessage(),
                         "Erro", JOptionPane.ERROR_MESSAGE);
             }
