@@ -24,12 +24,17 @@ Copie o arquivo `.env.example` para `.env` e ajuste as variáveis `DB_URL`, `DB_
 
 ## Compilação
 Utilize o JDK (versão 17 ou superior) para compilar manualmente os arquivos fonte.
-Se preferir dispensar o Maven, baixe a biblioteca `dotenv-java` para a pasta `lib/`
-e a inclua no classpath:
+
+Se preferir dispensar o Maven, baixe as bibliotecas `dotenv-java` e `mysql-connector-java` para a pasta `lib/` e inclua-as no classpath:
+
 
 ```bash
 curl -L -o lib/dotenv-java-3.2.0.jar \
   https://repo1.maven.org/maven2/io/github/cdimascio/dotenv-java/3.2.0/dotenv-java-3.2.0.jar
+
+curl -L -o lib/mysql-connector-java-8.0.29.jar \
+  https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.29/mysql-connector-java-8.0.29.jar
+
 ```
 
 ```bash
@@ -54,14 +59,16 @@ java -cp "lib/*:out" com.uniclinica.controller.SwingApp
 
 O repositório inclui scripts Bash para facilitar a execução. Os arquivos `run.sh` e `run_swing.sh`
 
-utilizam o Maven, enquanto `run_swing_nomaven.sh` baixa a dependência `dotenv-java` e roda a interface sem Maven.
+utilizam o Maven, enquanto `run_swing_nomaven.sh` baixa as dependências `dotenv-java` e `mysql-connector-java` e roda a interface sem Maven.
 Execute-os dentro de um terminal **Bash** (ex.: Git Bash no Windows) para evitar que a janela se feche imediatamente em caso de erro:
 
 
 ```bash
 ./run.sh                 # executa a aplicação de console (via Maven)
 ./run_swing.sh           # abre a interface Swing (via Maven)
-./run_swing_nomaven.sh   # baixa o jar necessário e executa a interface sem Maven
+
+./run_swing_nomaven.sh   # baixa as dependências e executa a interface sem Maven
+
 ```
 
 ### Execução rápida com Maven
