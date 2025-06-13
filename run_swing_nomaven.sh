@@ -8,6 +8,8 @@ case "$(uname -s)" in
   *) CP_SEP=":" ;;
 esac
 
+
+
 JAR_DIR="lib"
 JAR_NAME="dotenv-java-3.2.0.jar"
 JAR_PATH="$JAR_DIR/$JAR_NAME"
@@ -24,6 +26,7 @@ echo "Compilando fontes..."
 javac -cp "$JAR_DIR/*" -d out $(find src/main/java -name '*.java')
 
 echo "Iniciando aplicativo Swing..."
+
 java -cp "$JAR_DIR/*${CP_SEP}out" com.uniclinica.controller.SwingApp
 
 # Em ambientes Windows, mantenha a janela aberta para o usuário ver mensagens
