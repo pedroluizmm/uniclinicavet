@@ -34,6 +34,9 @@ curl -L -o lib/dotenv-java-3.2.0.jar \
 
 ```bash
 javac -cp "lib/*" -d out $(find src/main/java -name '*.java')
+
+# use ';' instead of ':' on Windows
+
 java -cp "lib/*:out" com.uniclinica.controller.App
 ```
 
@@ -41,13 +44,19 @@ Para abrir a interface Swing com um pequeno formulário de agendamento basta exe
 
 ```bash
 javac -cp "lib/*" -d out $(find src/main/java -name '*.java')
+
+# use ';' instead of ':' on Windows
+
 java -cp "lib/*:out" com.uniclinica.controller.SwingApp
 ```
 
 ### Execução rápida com scripts
 
 O repositório inclui scripts Bash para facilitar a execução. Os arquivos `run.sh` e `run_swing.sh`
-utilizam o Maven, enquanto `run_swing_nomaven.sh` baixa a dependência `dotenv-java` e roda a interface sem Maven:
+
+utilizam o Maven, enquanto `run_swing_nomaven.sh` baixa a dependência `dotenv-java` e roda a interface sem Maven.
+Execute-os dentro de um terminal **Bash** (ex.: Git Bash no Windows) para evitar que a janela se feche imediatamente em caso de erro:
+
 
 ```bash
 ./run.sh                 # executa a aplicação de console (via Maven)
@@ -80,6 +89,9 @@ Caso deseje rodar a interface gráfica sem Maven nem scripts, compile e execute 
 
 ```bash
 javac -cp "lib/*" -d out $(find src/main/java -name '*.java')
+
+# use ';' instead of ':' on Windows
+
 java -cp "lib/*:out" com.uniclinica.controller.SwingApp
 ```
 
